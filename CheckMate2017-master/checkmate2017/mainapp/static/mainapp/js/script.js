@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$('body').css('backgroundColor', 'rgba(210, 186, 2, 0.14)');
 	$('body').css('fontFamily', 'arial, verdana');
 	
-	var svg = $('svg');
+	var svg = $('#Layer_1');
 	
 	// getNamedItem('viewbox').value
 	
@@ -31,7 +31,12 @@ $(document).ready(function(){
 		return $('#player_girl');
 	}
 
-
+	var small_view = $('#Layer_2');
+	small_view.css({
+		'position': 'absolute',
+		'top': $(window).height() - small_view.height() - 20 + 'px',
+		'left': $(window).width() - small_view.width() - 20 + 'px',
+	})
 
 	/*****
 	*
