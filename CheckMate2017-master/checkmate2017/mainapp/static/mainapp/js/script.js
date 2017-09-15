@@ -235,6 +235,15 @@ $(document).ready(function(){
 			return;
 		}
 
+		roads.each(function(ind, ele){
+					if(checkEnclosed(player_props.rect, ele)){
+						$(ele).css('fill', '#ddd');
+					}else{
+						$(ele).css('fill', '222');
+					}
+		})
+
+		console.log('in road 15 now',checkEnclosed(player_props.rect, $('#road_15_')[0]));
 		player_props.new_rect.top += player_props.top;
 		player_props.new_rect.bottom -= player_props.top;
 		player_props.new_rect.left += player_props.left;
@@ -244,7 +253,8 @@ $(document).ready(function(){
 		if(prev_road){
 			inRoad = checkEnclosed(player_props.new_rect, prev_road)
 		}
-		// console.log(inRoad)
+		console.log('in prev road later, ', inRoad)
+		console.log('in road 15 later',checkEnclosed(player_props.new_rect, $('#road_15_')[0]));
 
 		if(!inRoad){
 			roads.each(function(ind, ele){
@@ -258,9 +268,10 @@ $(document).ready(function(){
 
 		notInCircle = checkNotAboutToBeEnclosed(player_props.new_rect, $('#gandhi_circle')[0]) && checkNotAboutToBeEnclosed(player_props.new_rect, $('#patel_circle')[0]);
 		
-		// console.log(inRoad, notInCircle);
+		console.log(inRoad, notInCircle);
 		var state = (inRoad && notInCircle);
 		states.push(state);
+
 		// console.log(state)
 		retry.push(false);
 		if(state && move){
@@ -292,6 +303,9 @@ $(document).ready(function(){
 
 		
 		history.push([player_props.rel_x, player_props.rel_y])
+
+		
+
 
 	}
 
