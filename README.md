@@ -1,4 +1,3 @@
-Lite! work on the developement server for now. on db.sqlite3
 
 # CheckMate2017
 Check Mate event for the year 2017
